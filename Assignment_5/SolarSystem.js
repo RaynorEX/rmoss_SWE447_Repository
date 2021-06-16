@@ -19,13 +19,13 @@ var SolarSystem = {
   },
   Earth : {
     radius : 1,
-    distance : 1,
+    distance : 10,
     year : 1,
     color : [ 0.0, 0.0, 1.0, 1.0 ]
   },
   Moon : {
     radius : 0.2724,
-    distance : 0.00257,
+    distance : 2.0257,
     year : 0.0748,
     color : [ 0.5, 0.5, 0.5, 1.0 ]
   },
