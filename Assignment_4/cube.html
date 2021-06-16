@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="../Common/webgl-utils.js"></script>
+  <script src="../Common/initShaders.js"></script>
+</head>
+<body>
+  <canvas id="webgl-canvas" width="512" height="512" style="background-color: #00FF00"></canvas>
+  vertex locations (eight in total): (0,0,0) (1,0,0) (1,1,0) (0,1,0) (0,0,1) (1,0,1) (1,1,1) (0,1,1)
+  render indeces (two per face, twelve in total): {[(0,0,0) (1,0,0) (1,1,0)] [(0,0,0) (1,1,0) (0,1,0)]} {[(0,0,0)(1,0,0)(1,0,1)][(0,0,0)(1,0,1)(0,0,1)]}{[(1,0,0)(1,1,0)(1,1,1)][(1,0,0)(1,1,1)(1,0,1)]}{[(1,1,0)(0,1,0)(0,1,1)][(1,1,0)(0,1,1)(1,1,1)]}{[(0,1,0)(0,0,0)(0,0,1)][(0,1,0)(0,0,1)(0,1,1)]}{[(0,1,1)(0,0,1)(1,0,1)][(0,1,1)(1,0,1)(1,1,1)]}
+</body>
+</html>
