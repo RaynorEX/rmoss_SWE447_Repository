@@ -8,7 +8,7 @@ var wheelParts = {
 	Spoke2 : undefined,
 	Spoke3 : undefined,
 	Spoke4 : undefined,
-	Wheel : undefined
+	Tire : undefined
 }
 
 var V;
@@ -66,8 +66,8 @@ function render (){
 	ms.push();
 	ms.scale(data.radius);
 	gl.useProgram(wheel.program);
-	gl.uniformMatrix4fv(wheel.program.MV, false, flatten(ms.current()));
-	gl.uniformMatrix4fv(wheel.program.p, false, flatten(P));
+	gl.uniformMatrix4fv(wheel.uniforms.MV, false, flatten(ms.current()));
+	gl.uniformMatrix4fv(wheel.uniforms.P, false, flatten(P));
 	gl.uniform4fv(wheel.uniforms.color, flatten(data.color));
 	wheel.render();
 	ms.pop();
@@ -80,11 +80,11 @@ function render (){
 	
 	ms.push();
 	ms.rotate(0, axis)
-	ms.translate(data.distance, 0, 0);
+	ms.translate(0, data.distance, 0);
 	ms.scale(data.radius);
 	gl.useProgram(wheel.program);
-	gl.uniformMatrix4fv(wheel.program.MV, false, flatten(ms.current()));
-	gl.uniformMatrix4fv(wheel.program.p, false, flatten(P));
+	gl.uniformMatrix4fv(wheel.uniforms.MV, false, flatten(ms.current()));
+	gl.uniformMatrix4fv(wheel.uniforms.P, false, flatten(P));
 	gl.uniform4fv(wheel.uniforms.color, flatten(data.color));
 	wheel.render();
 	ms.pop();
@@ -97,11 +97,11 @@ function render (){
 	
 	ms.push();
 	ms.rotate(90, axis)
-	ms.translate(data.distance, 0, 0);
+	ms.translate(0, -data.distance, 0);
 	ms.scale(data.radius);
 	gl.useProgram(wheel.program);
-	gl.uniformMatrix4fv(wheel.program.MV, false, flatten(ms.current()));
-	gl.uniformMatrix4fv(wheel.program.p, false, flatten(P));
+	gl.uniformMatrix4fv(wheel.uniforms.MV, false, flatten(ms.current()));
+	gl.uniformMatrix4fv(wheel.uniforms.P, false, flatten(P));
 	gl.uniform4fv(wheel.uniforms.color, flatten(data.color));
 	wheel.render();
 	ms.pop();
@@ -117,8 +117,8 @@ function render (){
 	ms.translate(data.distance, 0, 0);
 	ms.scale(data.radius);
 	gl.useProgram(wheel.program);
-	gl.uniformMatrix4fv(wheel.program.MV, false, flatten(ms.current()));
-	gl.uniformMatrix4fv(wheel.program.p, false, flatten(P));
+	gl.uniformMatrix4fv(wheel.uniforms.MV, false, flatten(ms.current()));
+	gl.uniformMatrix4fv(wheel.uniforms.P, false, flatten(P));
 	gl.uniform4fv(wheel.uniforms.color, flatten(data.color));
 	wheel.render();
 	ms.pop();
@@ -130,17 +130,17 @@ function render (){
 	wheel.PointMode = false;
 	
 	ms.push();
-	ms.rotate(270, axis)
+	ms.rotate(0, axis)
 	ms.translate(data.distance, 0, 0);
 	ms.scale(data.radius);
 	gl.useProgram(wheel.program);
-	gl.uniformMatrix4fv(wheel.program.MV, false, flatten(ms.current()));
-	gl.uniformMatrix4fv(wheel.program.p, false, flatten(P));
+	gl.uniformMatrix4fv(wheel.uniforms.MV, false, flatten(ms.current()));
+	gl.uniformMatrix4fv(wheel.uniforms.P, false, flatten(P));
 	gl.uniform4fv(wheel.uniforms.color, flatten(data.color));
 	wheel.render();
 	ms.pop();
 	
-	name = "Wheel";
+	name = "Tire";
 	wheel = wheelParts[name];
 	data = wheelVars[name];
 	axis = [0.0, 1.0, 0.0];
@@ -148,11 +148,11 @@ function render (){
 	
 	ms.push();
 	ms.rotate(0, axis)
-	ms.translate(data.distance, 0, 0);
+	ms.translate(0, 0, data.distance);
 	ms.scale(data.radius);
 	gl.useProgram(wheel.program);
-	gl.uniformMatrix4fv(wheel.program.MV, false, flatten(ms.current()));
-	gl.uniformMatrix4fv(wheel.program.p, false, flatten(P));
+	gl.uniformMatrix4fv(wheel.uniforms.MV, false, flatten(ms.current()));
+	gl.uniformMatrix4fv(wheel.uniforms.p, false, flatten(P));
 	gl.uniform4fv(wheel.uniforms.color, flatten(data.color));
 	wheel.render();
 	ms.pop();
